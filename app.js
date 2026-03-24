@@ -103,12 +103,12 @@
     const title = document.createElement('div');
     title.style.fontWeight = '700';
     title.style.marginBottom = '6px';
-    title.textContent = 'Не удалось загрузить data.json автоматически';
+    title.textContent = 'Failed to load data.json automatically';
 
     const hint = document.createElement('div');
     hint.style.color = 'var(--muted)';
     hint.style.marginBottom = '10px';
-    hint.textContent = 'Если ты открыл страницу как file://, браузер может блокировать fetch. Выбери data.json вручную:';
+    hint.textContent = 'If you opened the page as file://, the browser may block fetch. Select data.json manually:';
 
     const input = document.createElement('input');
     input.type = 'file';
@@ -126,14 +126,14 @@
         const text = await file.text();
         const raw = JSON.parse(text);
         QUESTION_BANK = normalizeQuestionBank(raw);
-        status.textContent = `Загружено: ${Object.keys(QUESTION_BANK).length} тем(ы)`;
+        status.textContent = `Loaded: ${Object.keys(QUESTION_BANK).length} topic(s)`;
         if(startGameBtn) startGameBtn.disabled = false;
         if(toSubjectBtn) toSubjectBtn.disabled = false;
         renderSubjects();
         renderDifficulties();
       }catch(err){
         console.error('Failed to read selected JSON:', err);
-        status.textContent = 'Ошибка: файл не похож на корректный data.json';
+        status.textContent = 'Error: the file does not appear to be a valid data.json';
       }
     });
 
