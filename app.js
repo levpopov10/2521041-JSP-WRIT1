@@ -194,11 +194,22 @@
       renderDifficulties();
     }
     attachGameHandlers();
+    updateStepper(screenPlayers);
   }
 
   function showScreen(el){
     $all('.screen').forEach(s=>s.classList.remove('active'));
     el.classList.add('active');
+    updateStepper(el);
+  }
+
+  function updateStepper(activeEl){
+    const id = activeEl && activeEl.id;
+    if(!id) return;
+    $all('.stepper .step').forEach(step => {
+      const target = step.getAttribute('data-screen');
+      step.classList.toggle('active', target === id);
+    });
   }
 
   // Setup screen: player cards
