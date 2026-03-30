@@ -9,7 +9,32 @@
 <body>
   <div class="app">
     <header>
-      <h1>Quiz Rush</h1>
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <h1>Quiz Rush</h1>
+          <div class="subtitle">Fast rounds • Clean UI • Local questions</div>
+        </div>
+      </div>
+
+      <nav class="stepper" aria-label="Progress">
+        <div class="step" data-screen="screen-players">
+          <div class="step-dot" aria-hidden="true"></div>
+          <div class="step-label">Players</div>
+        </div>
+        <div class="step" data-screen="screen-subject">
+          <div class="step-dot" aria-hidden="true"></div>
+          <div class="step-label">Setup</div>
+        </div>
+        <div class="step" data-screen="screen-game">
+          <div class="step-dot" aria-hidden="true"></div>
+          <div class="step-label">Play</div>
+        </div>
+        <div class="step" data-screen="screen-results">
+          <div class="step-dot" aria-hidden="true"></div>
+          <div class="step-label">Results</div>
+        </div>
+      </nav>
     </header>
 
     <!-- Screen 1: Player selection -->
